@@ -7,5 +7,5 @@ import com.neppplus.listviewpractice_20211103.datas.RamenData
 class RamenAdapter (
     val mContext: Context,
     val resId: Int,
-    val mList: ArrayList<RamenData> ) : ArrayAdapter<RamenData>(  ) {
+    val mList: ArrayList<RamenData> ) : ArrayAdapter<RamenData>( mContext, resId, mList ) {
 }
