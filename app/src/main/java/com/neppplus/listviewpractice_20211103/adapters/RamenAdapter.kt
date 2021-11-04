@@ -39,6 +39,16 @@ class RamenAdapter (
         val txtExpiry = row.findViewById<TextView>(R.id.txtExpiry)
         val txtAddress = row.findViewById<TextView>(R.id.txtAddress)
 
+
+        txtName.text = data.name
+//        txtAge.text = data.birthYear.toString()
+        txtAddress.text = data.address
+
+//        라면데이터의 출시년도 > 유효기간으로 바꿔서 ( 유효기간 ) 으로 가공해서 출력.
+        val Expiry = data.birthYear + 1
+        txtExpiry.text = "(${Expiry}년)"
+
+
 //        최종 결과로 나가자.
 
         return row
