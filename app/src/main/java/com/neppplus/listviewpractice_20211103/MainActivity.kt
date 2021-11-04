@@ -57,7 +57,13 @@ class MainActivity : AppCompatActivity() {
 
             val longClickedRamen = mRamenList[position]
 
-            Toast.makeText(this, "${longClickedRamen.name} 길게 눌림", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "${longClickedRamen.name} 길게 눌림", Toast.LENGTH_SHORT).show()
+
+//            길게 눌린 라면을 목록에서 제거 -> 리스트뷰에서도 빠지게 해보자. (삭제 기능)
+            mRamenList.remove(longClickedRamen)
+
+//            리스트뷰 -> 어댑터에게 새로고침 시키자. (인지시키자)
+            mRamenAdapter.notifyDataSetChanged()
 
 
 //            Boolean (true / false)을 결과로 지정해줘야함.
