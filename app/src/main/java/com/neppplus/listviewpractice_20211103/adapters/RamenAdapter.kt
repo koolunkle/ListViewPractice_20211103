@@ -45,12 +45,14 @@ class RamenAdapter (
         txtAddress.text = data.address
 
 //        라면데이터의 출시년도 > 유효기간으로 바꿔서 ( 유효기간 ) 으로 가공해서 출력.
-        val Expiry = data.birthYear + 1
-        txtExpiry.text = "(${Expiry}년)"
+//        val Expiry = data.birthYear + 1
+
+//        라면데이터의 기능 활용 -> 유효기간 구해주는 기능.
+
+        txtExpiry.text = "(${ data.getExpiry() }년)"
 
 
 //        최종 결과로 나가자.
-
         return row
 
     }
