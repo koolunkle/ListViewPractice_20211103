@@ -1,10 +1,12 @@
 package com.neppplus.listviewpractice_20211103
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.neppplus.listviewpractice_20211103.adapters.RamenAdapter
 import com.neppplus.listviewpractice_20211103.datas.RamenData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -59,11 +61,26 @@ class MainActivity : AppCompatActivity() {
 
 //            Toast.makeText(this, "${longClickedRamen.name} 길게 눌림", Toast.LENGTH_SHORT).show()
 
-//            길게 눌린 라면을 목록에서 제거 -> 리스트뷰에서도 빠지게 해보자. (삭제 기능)
-            mRamenList.remove(longClickedRamen)
+//            정말 그 라면을 지울건지? 확인을 눌러야만 지우자.
+            val alert = AlertDialog.Builder(this)
+            alert.setTitle("라면 삭제 확인")
+            alert.setMessage("정말 ${longClickedRamen.name}을 제거하시겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
+
+//                확인이 눌릴때만 실행되는 코드
+
+                //           길게 눌린 라면을 목록에서 제거 -> 리스트뷰에서도 빠지게 해보자. (삭제 기능)
+                mRamenList.remove(longClickedRamen)
 
 //            리스트뷰 -> 어댑터에게 새로고침 시키자. (인지시키자)
-            mRamenAdapter.notifyDataSetChanged()
+                mRamenAdapter.notifyDataSetChanged()
+
+            })
+            alert.setNegativeButton("취소", null)
+            alert.show()
+
+
+
 
 
 //            Boolean (true / false)을 결과로 지정해줘야함.
