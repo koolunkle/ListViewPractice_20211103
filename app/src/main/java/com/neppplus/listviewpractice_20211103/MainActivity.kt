@@ -1,5 +1,6 @@
 package com.neppplus.listviewpractice_20211103
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -39,7 +40,15 @@ class MainActivity : AppCompatActivity() {
             val clickedRamen = mRamenList[position]
 
 //            ex. 눌린 라면의 이름을 토스트로 출력
-            Toast.makeText(this, "${clickedRamen.name} 클릭됨", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "${clickedRamen.name} 클릭됨", Toast.LENGTH_SHORT).show()
+
+//            상세 보기 화면으로 이동
+
+            val myIntent = Intent( this, ViewRamenDetailActivity::class.java )
+            myIntent.putExtra("name", clickedRamen.name)
+            myIntent.putExtra("birthYear", clickedRamen.birthYear)
+            myIntent.putExtra("address", clickedRamen.address)
+            startActivity(myIntent)
 
 
         }
