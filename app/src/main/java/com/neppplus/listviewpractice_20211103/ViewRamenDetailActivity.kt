@@ -2,6 +2,7 @@ package com.neppplus.listviewpractice_20211103
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.neppplus.listviewpractice_20211103.datas.RamenData
 import kotlinx.android.synthetic.main.activity_view_ramen_detail.*
 
 class ViewRamenDetailActivity : AppCompatActivity() {
@@ -9,14 +10,14 @@ class ViewRamenDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_ramen_detail)
 
-        val name = intent.getStringExtra("name")
-        txtName.text = name
+//        통째로 넘겨준 RamenData를 intent에서 받아오자.
+//        Serializable을 받아오고있다. RamenData가 아님. => RamenData로 복원해야함.
+        val RamenData = intent.getSerializableExtra("ramen") as RamenData
 
-        val address = intent.getStringExtra("address")
-        txtAddress.text = address
 
-        val birthYear = intent.getIntExtra("birthYear", 0)
-        txtExpiry.text = birthYear.toString()
+        txtName.text = RamenData.name
+        txtExpiry.text = "${ RamenData.getExpiry( ) }년"
+        txtAddress.text = RamenData.address
 
 
     }

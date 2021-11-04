@@ -1,9 +1,11 @@
 package com.neppplus.listviewpractice_20211103.datas
 
+import java.io.Serializable
+
 class RamenData (
     val name: String,
     val birthYear: Int,
-    val address: String) {
+    val address: String) : Serializable {
 
 //    함수로 라면의 기능을 만들자.
 

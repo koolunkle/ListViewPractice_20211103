@@ -47,9 +47,12 @@ class MainActivity : AppCompatActivity() {
 //            상세 보기 화면으로 이동
 
             val myIntent = Intent( this, ViewRamenDetailActivity::class.java )
-            myIntent.putExtra("name", clickedRamen.name)
-            myIntent.putExtra("birthYear", clickedRamen.birthYear)
-            myIntent.putExtra("address", clickedRamen.address)
+//            myIntent.putExtra("name", clickedRamen.name)
+//            myIntent.putExtra("birthYear", clickedRamen.birthYear)
+//            myIntent.putExtra("address", clickedRamen.address)
+
+            myIntent.putExtra("ramen", clickedRamen)
+
             startActivity(myIntent)
 
 
